@@ -1,0 +1,10 @@
+mixin page__content(props)
+  - props = typeof props != 'undefined' ? props : {}
+
+  - var attrs = props.attrs || {}
+  - var tag = props.tag || 'div'
+
+  #{tag}(
+    class="page__content",
+  )&attributes(attrs)
+    block

@@ -1,1 +1,11 @@
-div(data-ui-view="main")
+include ../../components/page/=page
+include ../../components/page/__content/=page__content
+include ../../components/page/__header/=page__header
+include ../../components/page/__map/=page__map
+
++page
+  +page__map Карта
+
+  +page__header Шапка
+
+  +page__content({ attrs: { 'data-ui-view': 'main' }})
