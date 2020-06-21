@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Frontend Refactoring, Russian version",
   "scripts": {
-    "start": "webpack-dev-server --progress --hot --inline --config ./config/webpack.config.js"
+    "start": "webpack-dev-server --progress --hot --inline --config ./config/webpack.config.js",
+    "lint-scss": "stylelint \"src/**/*.scss\" --syntax scss --cache"
   },
   "dependencies": {
     "angular": "1.5.9",
@@ -23,6 +24,9 @@
     "sass": "1.25.0",
     "sass-loader": "8.0.2",
     "style-loader": "1.1.3",
+    "stylelint": "13.0.0",
+    "stylelint-order": "0.7.0",
+    "stylelint-scss": "2.1.0",
     "webpack": "4.41.5",
     "webpack-cli": "3.3.10",
     "webpack-dev-server": "3.10.2"
