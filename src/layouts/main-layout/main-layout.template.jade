@@ -5,14 +5,14 @@ include ../../components/page/__header/=page__header
 include ../../components/page/__map/=page__map
 
 +page
-  +page__map
-    map
-
   +page__header
     +menu({
       data: {
         items: ['Первая компания', 'Вторая компания', 'Третья компания']
       }
     })
+
+  +page__map
+    map
 
   +page__content({ attrs: { 'data-ui-view': 'main' }})
