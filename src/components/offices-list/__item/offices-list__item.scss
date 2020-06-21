@@ -1,0 +1,13 @@
+.offices-list__item {
+  padding: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background: #ebf3f7;
+    color: #1451fa;
+  }
+
+  + .offices-list__item {
+    border-top: 1px solid #ebf3f7;
+  }
+}
