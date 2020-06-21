@@ -1,3 +1,4 @@
+include ../../components/menu/=menu
 include ../../components/page/=page
 include ../../components/page/__content/=page__content
 include ../../components/page/__header/=page__header
@@ -7,6 +8,11 @@ include ../../components/page/__map/=page__map
   +page__map
     map
 
-  +page__header Шапка
+  +page__header
+    +menu({
+      data: {
+        items: ['Первая компания', 'Вторая компания', 'Третья компания']
+      }
+    })
 
   +page__content({ attrs: { 'data-ui-view': 'main' }})

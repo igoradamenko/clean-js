@@ -1,0 +1,12 @@
+mixin menu(props)
+  - props = typeof props != 'undefined' ? props : {}
+
+  - var attrs = props.attrs || {}
+  - var tag = props.tag || 'div'
+  - var data = props.data || {};
+
+  #{tag}(
+    class="menu",
+  )&attributes(attrs)
+    - for item in data.items
+      .menu__item= item
