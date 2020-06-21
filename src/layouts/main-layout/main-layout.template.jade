@@ -8,7 +8,20 @@ include ../../components/page/__map/=page__map
   +page__header
     +menu({
       data: {
-        items: ['Первая компания', 'Вторая компания', 'Третья компания']
+        items: [
+          {
+            title: 'Первая компания',
+            sref: 'company({ id: 1 })'
+          },
+          {
+            title: 'Вторая компания',
+            sref: 'company({ id: 2 })'
+          },
+          {
+            title: 'Третья компания',
+            sref: 'company({ id: 3 })'
+          },
+        ]
       }
     })
 

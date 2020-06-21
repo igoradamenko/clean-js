@@ -9,4 +9,4 @@ mixin menu(props)
     class="menu",
   )&attributes(attrs)
     - for item in data.items
-      .menu__item= item
+      a.menu__item(data-ui-sref= item.sref)= item.title
