@@ -43,6 +43,40 @@ module.exports = {
         test: /.jade$/,
         loader: 'jade-loader',
       },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              plugins: [
+                require('autoprefixer'),
+                require('postcss-url')({ url: 'inline', maxSize: 5 }),
+              ],
+            },
+          },
+          'resolve-url-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+              sourceMap: true,
+              sassOptions: {
+                fiber: require('fibers'),
+                includePaths: [path('src')],
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
