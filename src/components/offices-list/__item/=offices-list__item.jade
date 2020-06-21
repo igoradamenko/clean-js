@@ -1,0 +1,10 @@
+mixin offices-list__item(props)
+  - props = typeof props != 'undefined' ? props : {}
+
+  - var attrs = props.attrs || {}
+  - var tag = props.tag || 'div'
+
+  #{tag}(
+    class="offices-list__item",
+  )&attributes(attrs)
+    block

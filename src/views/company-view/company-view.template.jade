@@ -1,1 +1,8 @@
-div Конкретная компания
+include ../../components/offices-list/=offices-list
+include ../../components/offices-list/__item/=offices-list__item
+
+.company-view
+  +offices-list
+    +offices-list__item Первый офис
+    +offices-list__item Второй офис
+    +offices-list__item Третий офис
