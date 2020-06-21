@@ -5,6 +5,7 @@ module.exports = {
   },
   globals: {
     angular: true,
+    ymaps: true,
     BASE_PATH: true,
   },
   rules: {

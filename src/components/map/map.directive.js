@@ -1,6 +1,53 @@
+const API_URL = 'https://api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU&mode=release&apikey=b84f855a-030f-49d7-ae5d-37b6467bb901'; // плохой ключ
+
 class MapController {
-  constructor() {
-    this.text = 'Test text';
+  constructor($scope, $element, $document, $window) {
+    this.deps = {
+      $scope,
+      $element,
+      $document,
+      $window,
+    };
+
+    this.mapNode = $element[0];
+
+    this.init();
+  }
+
+  init() {
+    const onloadFunctionName = 'mapApiLoaded';
+
+    const script = angular.element('<script>');
+    script.attr('src', `${API_URL}&onload=${onloadFunctionName}`);
+    this.deps.$document.find('body').append(script);
+
+    this.deps.$window[onloadFunctionName] = () => {
+      this.deps.$scope.$apply(() => {
+        this.initializeMap();
+        this.deps.$window[onloadFunctionName] = null;
+      });
+    };
+  }
+
+  initializeMap() {
+    if (this.map || typeof ymaps === 'undefined') return;
+
+    this.getCoordinatesByIp().then(position => {
+      this.map = new ymaps.Map(this.mapNode, {
+        center: position,
+        zoom: 14,
+        controls: [],
+      }, {
+        autoFitToViewport: 'always',
+        avoidFractionalZoom: false,
+      });
+    });
+  }
+
+  getCoordinatesByIp() {
+    return ymaps.geolocation.get({ timeout: 8000 })
+      .then(res => res.geoObjects.position)
+      .catch(() => [55.75222, 37.61556]);
   }
 }
 
@@ -15,4 +62,5 @@ angular
     controller: MapController,
     controllerAs: 'c',
     bindToController: true,
+    $inject: ['$scope', '$element', '$document', '$window'],
   }));
