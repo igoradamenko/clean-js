@@ -1,8 +1,12 @@
 .menu__item {
+  padding: 10px 16px;
+  text-decoration: none;
   font-size: 18px;
   line-height: 40px;
+  color: #000;
 
-  + .menu__item {
-    margin-left: 24px;
+  &:hover {
+    background: #ebf3f7;
+    color: #1451fa;
   }
 }
