@@ -1,5 +1,7 @@
 /* eslint-disable import/first */
 
+import './components/reset';
+
 import angular from 'angular';
 
 window.angular = angular;
