@@ -1,3 +1,9 @@
+class CompanyViewDirective {
+  selectOffice() {
+    console.log('Select office click');
+  }
+}
+
 angular
   .module('app')
   .directive('companyView', () => ({
@@ -6,7 +12,7 @@ angular
     replace: true,
     transclude: true,
     scope: {},
-    controller() {},
+    controller: CompanyViewDirective,
     controllerAs: 'c',
     bindToController: true,
   }));
