@@ -32,22 +32,14 @@ class MapController {
   initializeMap() {
     if (this.map || typeof ymaps === 'undefined') return;
 
-    this.getCoordinatesByIp().then(position => {
-      this.map = new ymaps.Map(this.mapNode, {
-        center: position,
-        zoom: 14,
-        controls: [],
-      }, {
-        autoFitToViewport: 'always',
-        avoidFractionalZoom: false,
-      });
+    this.map = new ymaps.Map(this.mapNode, {
+      center: [55.75222, 37.61556],
+      zoom: 13,
+      controls: [],
+    }, {
+      autoFitToViewport: 'always',
+      avoidFractionalZoom: false,
     });
-  }
-
-  getCoordinatesByIp() {
-    return ymaps.geolocation.get({ timeout: 8000 })
-      .then(res => res.geoObjects.position)
-      .catch(() => [55.75222, 37.61556]);
   }
 }
 
