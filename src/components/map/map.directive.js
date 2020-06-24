@@ -93,7 +93,6 @@ class MapController {
   selectPOI(poi) {
     this.unselectAllPOIs();
     poi.options.set('iconLayout', poi.properties.get('icons').selected);
-    this.map.panTo(poi.geometry.getCoordinates());
   }
 
   unselectAllPOIs() {
