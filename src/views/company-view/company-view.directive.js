@@ -1,16 +1,18 @@
 class CompanyViewDirective {
-  constructor($http) {
+  constructor($http, $stateParams) {
     this.deps = {
       $http,
+      $stateParams,
     };
+    this.offices = [];
   }
 
   $onInit() {
     this.deps.$http({
       method: 'GET',
-      url: '/api/companies',
+      url: `/api/companies/${this.deps.$stateParams.id}`,
     }).then(response => {
-      console.log(response.data.result.status, response.data.result.companies);
+      this.offices = response.data.result.offices;
     }, error => {
       console.error(error);
     });
@@ -32,5 +34,5 @@ angular
     controller: CompanyViewDirective,
     controllerAs: 'c',
     bindToController: true,
-    $inject: ['$http'],
+    $inject: ['$http', '$stateParams'],
   }));
