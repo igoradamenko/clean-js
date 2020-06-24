@@ -5,7 +5,9 @@ class CompanyViewDirective {
       $stateParams,
       mapService,
     };
+
     this.offices = [];
+    this.selectedOfficeId = null;
   }
 
   $onInit() {
@@ -24,8 +26,9 @@ class CompanyViewDirective {
     });
   }
 
-  selectOffice() {
-    console.log('Select office click');
+  selectOffice(office) {
+    this.selectedOfficeId = office.id;
+    this.deps.mapService.selectPOIById(office.id);
   }
 }
 

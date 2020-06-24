@@ -4,6 +4,9 @@ include ../../components/offices-list/__item/=offices-list__item
 .company-view
   +offices-list
     +offices-list__item({
+      ngMods: {
+        selected: 'c.selectedOfficeId === office.id'
+      },
       attrs: {
         'data-ng-repeat': 'office in c.offices',
         'data-ng-click': 'c.selectOffice(office)'

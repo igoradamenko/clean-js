@@ -3,8 +3,14 @@ mixin offices-list__item(props)
 
   - var attrs = props.attrs || {}
   - var tag = props.tag || 'div'
+  - var ngMods = props.ngMods || {}
+
+  - var ngClass = '{'
+  - ngClass += ngMods.selected ? `'offices-list__item_selected': ${ngMods.selected}` : ''
+  - ngClass += '}'
 
   #{tag}(
     class="offices-list__item",
+    data-ng-class= ngClass
   )&attributes(attrs)
     block

@@ -1,0 +1,7 @@
+.offices-list__item_selected {
+  &, &:hover {
+    background: #bad5ff;
+    color: #1451fa;
+    cursor: default;
+  }
+}
