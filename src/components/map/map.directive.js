@@ -1,16 +1,21 @@
 const API_URL = 'https://api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU&mode=release&apikey=b84f855a-030f-49d7-ae5d-37b6467bb901'; // плохой ключ
 
 class MapController {
-  constructor($scope, $element, $document, $window, mapService) {
+  constructor($scope, $element, $document, $window, $q, mapService) {
     this.deps = {
       $scope,
       $element,
       $document,
       $window,
+      $q,
       mapService,
     };
 
     this.mapNode = $element[0];
+    this.initCallbacks = [];
+    this.inited = false;
+
+    this.deps.mapService.setMapDirective(this);
 
     this.init();
   }
@@ -26,6 +31,8 @@ class MapController {
       this.deps.$scope.$apply(() => {
         this.initializeMap();
         this.deps.$window[onloadFunctionName] = null;
+        this.inited = true;
+        this.fireInitCallbacks();
       });
     };
   }
@@ -41,8 +48,21 @@ class MapController {
       autoFitToViewport: 'always',
       avoidFractionalZoom: false,
     });
+  }
 
-    this.deps.mapService.setMap(this);
+  getYmaps() {
+    if (this.inited) {
+      return this.deps.$q.resolve(ymaps);
+    }
+
+    const deferred = this.deps.$q.defer();
+    this.initCallbacks.push(deferred.resolve);
+
+    return deferred.promise;
+  }
+
+  fireInitCallbacks() {
+    this.initCallbacks.forEach(cb => cb(ymaps));
   }
 }
 
@@ -57,5 +77,5 @@ angular
     controller: MapController,
     controllerAs: 'c',
     bindToController: true,
-    $inject: ['$scope', '$element', '$document', '$window', 'mapService'],
+    $inject: ['$scope', '$element', '$document', '$window', '$q', 'mapService'],
   }));

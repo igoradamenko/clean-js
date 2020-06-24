@@ -1,10 +1,14 @@
 class MapService {
   constructor() {
-    this.map = null;
+    this.mapDirective = null;
   }
 
-  setMap(map) {
-    this.map = map;
+  setMapDirective(mapDirective) {
+    this.mapDirective = mapDirective;
+  }
+
+  getYmaps() {
+    return this.mapDirective.getYmaps();
   }
 }
 
