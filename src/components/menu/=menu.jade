@@ -8,5 +8,7 @@ mixin menu(props)
   #{tag}(
     class="menu",
   )&attributes(attrs)
-    - for item in data.items
-      a.menu__item(data-ui-sref= item.sref)= item.title
+    a.menu__item(
+      data-ng-repeat="item in #{data.items}",
+      data-ng-attr-href="{{ item.href }}"
+    ) {{ item.title }} {{ item.current ? '*' : '' }}
