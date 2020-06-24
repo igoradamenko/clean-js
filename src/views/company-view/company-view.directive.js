@@ -9,6 +9,8 @@ class CompanyViewDirective {
   }
 
   $onInit() {
+    this.deps.mapService.clear();
+
     this.deps.$http({
       method: 'GET',
       url: `/api/companies/${this.deps.$stateParams.id}`,
