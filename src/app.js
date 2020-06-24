@@ -9,10 +9,13 @@ window.angular = angular;
 
 import 'angular-ui-router';
 
+import 'angular-mocks';
+import injectMocks from './app.mocks';
+
 const basePath = BASE_PATH.slice(0, -1);
 const homePath = basePath || '/';
 
-angular.module('app', ['ui.router'])
+angular.module('app', ['ui.router', 'ngMockE2E'])
   .constant('settings', {})
   .config(['$compileProvider', '$stateProvider', '$locationProvider',
     ($compileProvider, $stateProvider, $locationProvider) => {
@@ -44,7 +47,7 @@ angular.module('app', ['ui.router'])
         });
     },
   ])
-  .run();
+  .run(injectMocks);
 
 require('./layouts/main-layout');
 

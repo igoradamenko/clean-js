@@ -1,4 +1,21 @@
 class CompanyViewDirective {
+  constructor($http) {
+    this.deps = {
+      $http,
+    };
+  }
+
+  $onInit() {
+    this.deps.$http({
+      method: 'GET',
+      url: '/api/companies',
+    }).then(response => {
+      console.log(response.data.result.status, response.data.result.companies);
+    }, error => {
+      console.error(error);
+    });
+  }
+
   selectOffice() {
     console.log('Select office click');
   }
@@ -15,4 +32,5 @@ angular
     controller: CompanyViewDirective,
     controllerAs: 'c',
     bindToController: true,
+    $inject: ['$http'],
   }));
