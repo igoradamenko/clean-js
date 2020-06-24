@@ -52,6 +52,11 @@ class MapController {
     });
   }
 
+  clear() {
+    if (this.map) this.map.geoObjects.removeAll();
+    this.markerPOIs = [];
+  }
+
   getYmaps() {
     if (this.inited) {
       return this.deps.$q.resolve(ymaps);

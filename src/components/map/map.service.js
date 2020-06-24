@@ -7,6 +7,10 @@ class MapService {
     this.mapDirective = mapDirective;
   }
 
+  clear() {
+    return this.mapDirective.clear();
+  }
+
   getYmaps() {
     return this.mapDirective.getYmaps();
   }
