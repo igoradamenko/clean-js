@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "angular": "1.5.9",
+    "angular-mocks": "1.5.9",
     "angular-ui-router": "0.2.18"
   },
   "devDependencies": {
