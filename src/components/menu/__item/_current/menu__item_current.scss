@@ -1,0 +1,7 @@
+.menu__item_current {
+  &, &:hover {
+    background: #bad5ff;
+    color: #1451fa;
+    cursor: default;
+  }
+}
