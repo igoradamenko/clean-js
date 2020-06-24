@@ -1,8 +1,9 @@
 class CompanyViewDirective {
-  constructor($http, $stateParams) {
+  constructor($http, $stateParams, mapService) {
     this.deps = {
       $http,
       $stateParams,
+      mapService,
     };
     this.offices = [];
   }
@@ -13,6 +14,9 @@ class CompanyViewDirective {
       url: `/api/companies/${this.deps.$stateParams.id}`,
     }).then(response => {
       this.offices = response.data.result.offices;
+      this.offices.forEach(office => {
+        this.deps.mapService.addPOI(office.coords, { id: office.id });
+      });
     }, error => {
       console.error(error);
     });
@@ -34,5 +38,5 @@ angular
     controller: CompanyViewDirective,
     controllerAs: 'c',
     bindToController: true,
-    $inject: ['$http', '$stateParams'],
+    $inject: ['$http', '$stateParams', 'mapService'],
   }));
