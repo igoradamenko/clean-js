@@ -35,7 +35,7 @@ angular.module('app', ['ui.router'])
         })
 
         .state('company', {
-          url: `${basePath}/company`,
+          url: `${basePath}/company/{id:int}`,
           views: {
             main: {
               template: '<company-view></company-view>',
