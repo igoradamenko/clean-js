@@ -1,3 +1,5 @@
+import SmoothScrollY from 'helpers/smooth-scroll-y';
+
 class CompanyViewDirective {
   constructor($element, $http, $scope, $stateParams, $window, mapService) {
     this.deps = {
@@ -12,6 +14,7 @@ class CompanyViewDirective {
     this.offices = [];
     this.selectedOfficeId = null;
     this.scrollableNode = $element[0].parentNode;
+    this.scroller = new SmoothScrollY(this.scrollableNode);
   }
 
   $onInit() {
@@ -76,7 +79,7 @@ class CompanyViewDirective {
 
     if (elemNode) {
       const top = !force && elemNode.offsetTop <= this.scrollableNode.clientHeight / 2 ? 0 : elemNode.offsetTop;
-      this.scrollableNode.scrollTo({ top, left: 0, behavior: 'smooth' });
+      this.scroller.scroll(top);
     }
   }
 }
