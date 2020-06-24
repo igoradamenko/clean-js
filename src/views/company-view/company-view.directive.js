@@ -1,13 +1,17 @@
 class CompanyViewDirective {
-  constructor($http, $stateParams, mapService) {
+  constructor($element, $http, $scope, $stateParams, $window, mapService) {
     this.deps = {
+      $element,
       $http,
+      $scope,
       $stateParams,
+      $window,
       mapService,
     };
 
     this.offices = [];
     this.selectedOfficeId = null;
+    this.scrollableNode = $element[0].parentNode;
   }
 
   $onInit() {
@@ -24,11 +28,56 @@ class CompanyViewDirective {
     }, error => {
       console.error(error);
     });
+
+    this.keyupHandler = this.onKeydown.bind(this);
+    this.deps.$window.addEventListener('keydown', this.keyupHandler);
+  }
+
+  $onDestroy() {
+    this.deps.$window.removeEventListener('keydown', this.keyupHandler);
   }
 
   selectOffice(office) {
-    this.selectedOfficeId = office.id;
     this.deps.mapService.selectPOIById(office.id);
+    this.selectedOfficeId = office.id;
+  }
+
+  onKeydown(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    const UP = 38;
+    const DOWN = 40;
+
+    if (event.keyCode === UP || event.keyCode === DOWN) {
+      const direction = event.keyCode - 39;
+
+      let curItemIndex;
+      if (!this.selectedOfficeId) {
+        curItemIndex = direction;
+      } else {
+        curItemIndex = this.offices.findIndex(o => o.id === this.selectedOfficeId);
+      }
+
+      if (this.offices[curItemIndex - direction]) {
+        curItemIndex -= direction;
+
+        this.deps.$scope.$applyAsync(() => {
+          this.selectOffice(this.offices[curItemIndex], false);
+          this.scroll(this.offices[curItemIndex].id);
+        });
+      }
+    }
+  }
+
+  scroll(id, force) {
+    const elemIdSelector = `#office${id}`;
+    const elemNode = document.querySelector(elemIdSelector);
+
+    if (elemNode) {
+      const top = !force && elemNode.offsetTop <= this.scrollableNode.clientHeight / 2 ? 0 : elemNode.offsetTop;
+      this.scrollableNode.scrollTo({ top, left: 0, behavior: 'smooth' });
+    }
   }
 }
 
@@ -43,5 +92,5 @@ angular
     controller: CompanyViewDirective,
     controllerAs: 'c',
     bindToController: true,
-    $inject: ['$http', '$stateParams', 'mapService'],
+    $inject: ['$element', '$http', '$scope', '$stateParams', '$window', 'mapService'],
   }));
