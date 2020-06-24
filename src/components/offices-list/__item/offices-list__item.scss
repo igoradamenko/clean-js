@@ -3,11 +3,11 @@
   cursor: pointer;
 
   &:hover {
-    background: #ebf3f7;
+    background: #ecf3ff;
     color: #1451fa;
   }
 
   + .offices-list__item {
-    border-top: 1px solid #ebf3f7;
+    border-top: 1px solid #ecf3ff;
   }
 }
