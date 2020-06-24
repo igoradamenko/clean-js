@@ -79,6 +79,10 @@ class CompanyViewDirective {
     const top = !force && elemNode.offsetTop <= this.scrollableNode.clientHeight / 2 ? 0 : elemNode.offsetTop;
     this.scrollableNode.scrollTo({ top, left: 0, behavior: 'smooth' });
   }
+
+  onEditClick(officeId) {
+    console.log(officeId);
+  }
 }
 
 angular

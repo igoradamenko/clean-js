@@ -1,0 +1,10 @@
+mixin offices-list__button(props)
+  - props = typeof props != 'undefined' ? props : {}
+
+  - var attrs = props.attrs || {}
+  - var tag = props.tag || 'button'
+
+  #{tag}(
+    class="offices-list__button",
+  )&attributes(attrs)
+    block
