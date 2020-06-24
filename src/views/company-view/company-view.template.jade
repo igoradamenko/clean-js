@@ -1,4 +1,5 @@
 include ../../components/offices-list/=offices-list
+include ../../components/offices-list/__button/=offices-list__button
 include ../../components/offices-list/__item/=offices-list__item
 
 .company-view
@@ -12,4 +13,10 @@ include ../../components/offices-list/__item/=offices-list__item
         'data-ng-repeat': 'office in c.offices',
         'data-ng-click': 'c.selectOffice(office)'
       }
-    }) {{ office.address }}
+    })
+      | {{ office.address }}
+      +offices-list__button({
+        attrs: {
+          'data-ng-click': 'c.onEditClick(office.id)'
+        }
+      }) Редактировать
