@@ -29,7 +29,7 @@ angular.module('app', ['ui.router'])
           url: homePath,
           views: {
             main: {
-              template: '<companies-view></companies-view>',
+              template: null,
             },
           },
         })
@@ -48,5 +48,4 @@ angular.module('app', ['ui.router'])
 
 require('./layouts/main-layout');
 
-require('./views/companies-view');
 require('./views/company-view');
