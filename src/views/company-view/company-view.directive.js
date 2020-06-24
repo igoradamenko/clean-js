@@ -79,10 +79,6 @@ class CompanyViewDirective {
       this.scrollableNode.scrollTo({ top, left: 0, behavior: 'smooth' });
     }
   }
-
-  onEditClick(officeId) {
-    console.log(officeId);
-  }
 }
 
 angular
