@@ -1,6 +1,8 @@
 import getCompanies from 'mocks/getCompanies';
+import getCompany from 'mocks/getCompany';
 
 export default $httpBackend => {
+  $httpBackend.whenGET(/\/api\/companies\/(\d+)/, undefined, ['id']).respond(getCompany);
   $httpBackend.whenGET(/\/api\/companies/).respond(getCompanies);
 
   $httpBackend.when('GET').passThrough();

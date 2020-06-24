@@ -4,7 +4,7 @@ export default () => [200, {
     companies: [
       {
         id: 1,
-        title: 'Макдоналдс',
+        title: 'Макдональдс',
       },
       {
         id: 2,
