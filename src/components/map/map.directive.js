@@ -1,7 +1,7 @@
 const API_URL = 'https://api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU&mode=release&apikey=b84f855a-030f-49d7-ae5d-37b6467bb901'; // плохой ключ
 
 class MapController {
-  constructor($scope, $element, $document, $window, $q, mapService) {
+  constructor($scope, $element, $document, $window, $q, mapService, POIService) {
     this.deps = {
       $scope,
       $element,
@@ -9,9 +9,11 @@ class MapController {
       $window,
       $q,
       mapService,
+      POIService,
     };
 
     this.mapNode = $element[0];
+    this.markerPOIs = [];
     this.initCallbacks = [];
     this.inited = false;
 
@@ -64,6 +66,14 @@ class MapController {
   fireInitCallbacks() {
     this.initCallbacks.forEach(cb => cb(ymaps));
   }
+
+  addPOI(location, iconData) {
+    return this.deps.POIService.create(location, iconData).then(poi => {
+      this.map.geoObjects.add(poi);
+      this.markerPOIs.push(poi);
+      return poi;
+    });
+  }
 }
 
 angular
@@ -77,5 +87,5 @@ angular
     controller: MapController,
     controllerAs: 'c',
     bindToController: true,
-    $inject: ['$scope', '$element', '$document', '$window', '$q', 'mapService'],
+    $inject: ['$scope', '$element', '$document', '$window', '$q', 'mapService', 'POIService'],
   }));

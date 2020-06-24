@@ -10,6 +10,10 @@ class MapService {
   getYmaps() {
     return this.mapDirective.getYmaps();
   }
+
+  addPOI(location, iconData) {
+    return this.mapDirective.addPOI(location, iconData);
+  }
 }
 
 angular

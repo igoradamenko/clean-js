@@ -1,3 +1,5 @@
+import '../poi';
+
 import './map.directive';
 import './map.service';
 
