@@ -18,6 +18,10 @@ class MapService {
   addPOI(location, iconData) {
     return this.mapDirective.addPOI(location, iconData);
   }
+
+  selectPOIById(id) {
+    return this.mapDirective.selectPOIById(id);
+  }
 }
 
 angular

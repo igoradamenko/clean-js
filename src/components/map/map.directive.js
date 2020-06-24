@@ -13,7 +13,7 @@ class MapController {
     };
 
     this.mapNode = $element[0];
-    this.markerPOIs = [];
+    this.POIs = [];
     this.initCallbacks = [];
     this.inited = false;
 
@@ -54,7 +54,7 @@ class MapController {
 
   clear() {
     if (this.map) this.map.geoObjects.removeAll();
-    this.markerPOIs = [];
+    this.POIs = [];
   }
 
   getYmaps() {
@@ -75,8 +75,30 @@ class MapController {
   addPOI(location, iconData) {
     return this.deps.POIService.create(location, iconData).then(poi => {
       this.map.geoObjects.add(poi);
-      this.markerPOIs.push(poi);
+      this.POIs.push(poi);
       return poi;
+    });
+  }
+
+  selectPOIById(id) {
+    const poi = this.POIs.find(p => p.properties.get('id') === id);
+    if (!poi) return;
+
+    this.selectPOI(poi);
+  }
+
+  // центрирование нужно доработать, чтобы карта не двигалась, если точка видна
+  // igoradamenko, 24.06.2020
+
+  selectPOI(poi) {
+    this.unselectAllPOIs();
+    poi.options.set('iconLayout', poi.properties.get('icons').selected);
+    this.map.panTo(poi.geometry.getCoordinates());
+  }
+
+  unselectAllPOIs() {
+    this.POIs.forEach(poi => {
+      poi.options.set('iconLayout', poi.properties.get('icons').normal);
     });
   }
 }

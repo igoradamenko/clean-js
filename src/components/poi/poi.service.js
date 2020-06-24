@@ -14,7 +14,7 @@ class POIService {
       .then(icons => this.deps.mapService.getYmaps().then(ymaps => new ymaps.Placemark(
         location.reverse(),
         {
-          number: iconData.id,
+          id: iconData.id,
           icons, // объект со строками, которые можно использовать в iconLayout
         },
         {
