@@ -50,11 +50,19 @@ class MapController {
       autoFitToViewport: 'always',
       avoidFractionalZoom: false,
     });
+
+    this.map.events.add('boundschange', this.handleBoundsChange.bind(this), {}, -1);
   }
 
   clear() {
     if (this.map) this.map.geoObjects.removeAll();
     this.POIs = [];
+  }
+
+  handleBoundsChange(event) {
+    if (event.get('newZoom') === event.get('oldZoom')) return;
+
+    this.map.panTo([55.75222, 37.61556]);
   }
 
   getYmaps() {
