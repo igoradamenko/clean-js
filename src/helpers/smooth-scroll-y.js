@@ -15,11 +15,8 @@ export default class SmoothScrollY {
   /**
    * Create an instance.
    * @param {HTMLElement} element - DOM element.
-   * @param {object} options - object with options.
    */
-  constructor(element, options = {}) {
-    const { timeIncrement, duration, easing } = options;
-
+  constructor(element, timeIncrement, duration, easing) {
     if (!element || typeof element !== 'object' || typeof element.nodeName !== 'string') {
       throw new Error('provide a DOM element');
     }
