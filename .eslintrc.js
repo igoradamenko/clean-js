@@ -7,6 +7,8 @@ module.exports = {
     angular: true,
     ymaps: true,
     BASE_PATH: true,
+    describe: true,
+    it: true,
   },
   rules: {
     'arrow-parens': 'off',
