@@ -11,21 +11,21 @@ const {
 } = require('./date');
 
 describe('Добавление', () => {
-  it('Проверка добавления 1 дня', () => {
+  it('Должно добавлять 1 день', () => {
     expect(addDays(new Date(2020, 0, 1), 1)).to.equalDate(new Date(2020, 0, 2));
   });
 
-  it('Проверка добавления 1 часа', () => {
+  it('Должно добавлять 1 час', () => {
     expect(addHours(new Date(2020, 0, 1), 1)).to.equalDate(new Date(2020, 0, 1, 2));
   });
 });
 
 describe('Вычитание', () => {
-  it('Проверка вычитания 1 дня', () => {
+  it('Должно вычитать 1 день', () => {
     expect(subtractDays(new Date(2020, 0, 1), 1)).to.equalDate(new Date(2019, 11, 31));
   });
 
-  it('Проверка вычитания 1 часа', () => {
+  it('Должно вычитать 1 час', () => {
     expect(subtractHours(new Date(2020, 0, 1), 1)).to.equalDate(new Date(2019, 11, 31, 23));
   });
 });

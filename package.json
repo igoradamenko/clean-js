@@ -6,7 +6,7 @@
     "start": "webpack-dev-server --progress --hot --inline --config ./config/webpack.config.js",
     "lint-js": "eslint --cache -c .eslintrc.js src",
     "lint-scss": "stylelint \"src/**/*.scss\" --syntax scss --cache",
-    "test": "mocha src/**/*.test.js"
+    "test": "nyc mocha src/**/*.test.js"
   },
   "dependencies": {
     "angular": "1.5.9",
@@ -32,6 +32,7 @@
     "jade-loader": "0.8.0",
     "lint-staged": "10.0.7",
     "mocha": "6.2.1",
+    "nyc": "15.1.0",
     "postcss-loader": "3.0.0",
     "postcss-url": "8.0.0",
     "resolve-url-loader": "3.1.1",
