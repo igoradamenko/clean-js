@@ -1,0 +1,9 @@
+input.text-input(
+  type="text"
+  data-ng-model="c.model",
+  data-ng-change="c.change()",
+  data-ng-class="{" +
+    "'text-input_filled': c.model," +
+    "'text-input_invalid': c.invalid" +
+  "}"
+)/

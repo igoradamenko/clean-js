@@ -1,0 +1,32 @@
+.text-input {
+  display: inline-flex;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 0 8px;
+  font-size: 16px;
+  line-height: 1;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  background: #fff;
+  color: #000;
+  appearance: none;
+
+  &:hover, &:focus {
+    border-color: #1451fa;
+  }
+
+  &::placeholder {
+    color: #d8d8d8;
+  }
+
+  &:-moz-ui-invalid {
+    box-shadow: none;
+  }
+
+  &:-webkit-autofill {
+    box-shadow: inset 0 0 0 40px #fff;
+  }
+}
