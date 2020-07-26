@@ -1,0 +1,18 @@
+mixin form-field(props)
+  - props = typeof props != 'undefined' ? props : {}
+
+  - var attrs = props.attrs || {}
+  - var tag = props.tag || 'div'
+  - var data = props.data || {}
+
+  #{tag}(
+    class="form-field",
+  )&attributes(attrs)
+    if data.label
+      .form-field__label= data.label
+
+    .form-field__field
+      block
+
+    if data.label
+      .form-field__error(data-ng-if= data.isInvalid)= data.error
