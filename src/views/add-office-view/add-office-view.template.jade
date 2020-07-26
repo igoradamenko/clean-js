@@ -1,0 +1,54 @@
+include ../../components/button/=button
+include ../../components/form-field/=form-field
+
+.add-company-view
+  .loading(data-ng-if="c.isLoading")
+  .data(data-ng-if="!c.isLoading")
+    +form-field({
+      data: {
+        label: 'Компания'
+      }
+    })
+      radio-input(
+        data-ng-repeat="company in c.companies"
+        data-model="c.company",
+        data-value="{{ company.id }}"
+        data-name="company"
+      ) {{ company.title }}
+
+    +form-field({
+      data: {
+        label: 'Адрес',
+        error: 'Укажите адрес нового ресторана',
+        isInvalid: 'c.isAddressInvalid'
+      }
+    })
+      text-input(
+        data-model="c.address",
+        data-type="text"
+        data-invalid="c.isAddressInvalid",
+        data-on-change="c.onAddressChange()"
+      )
+
+    +form-field({
+      data: {
+        label: 'Широта, долгота',
+        error: 'Укажите координаты ресторана в пределах Москвы в формате «ширина, долгота». Например: «55.75222, 37.61556»',
+        isInvalid: 'c.areCoordsInvalid'
+      }
+    })
+      text-input(
+        data-model="c.coords",
+        data-invalid="c.areCoordsInvalid",
+        data-on-change="c.onCoordsChange()"
+      )
+
+    +form-field
+      +button({
+        data: {
+          text: 'Сохранить'
+        },
+        attrs: {
+          'data-ng-click': 'c.onSave()'
+        }
+      })

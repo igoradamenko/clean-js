@@ -44,6 +44,15 @@ angular.module('app', ['ui.router', 'ngMockE2E'])
               template: '<company-view></company-view>',
             },
           },
+        })
+
+        .state('add-office', {
+          url: `${basePath}/add-office`,
+          views: {
+            main: {
+              template: '<add-office-view></add-office-view>',
+            },
+          },
         });
     },
   ])
@@ -52,3 +61,4 @@ angular.module('app', ['ui.router', 'ngMockE2E'])
 require('./layouts/main-layout');
 
 require('./views/company-view');
+require('./views/add-office-view');
