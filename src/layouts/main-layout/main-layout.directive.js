@@ -10,10 +10,16 @@ class MainLayoutDirective {
       method: 'GET',
       url: '/api/companies',
     }).then(response => {
-      this.companies = response.data.result.companies.map(c => ({
-        title: c.title,
-        href: this.deps.$state.href('company', { id: c.id }),
-      }));
+      this.companies = response.data.result.companies
+        .map(c => ({
+          title: c.title,
+          href: this.deps.$state.href('company', { id: c.id }),
+        }))
+        .concat({
+          title: 'Добавить ресторан',
+          href: '/add-office',
+          separated: true,
+        });
       this.updateCurrentCompany();
     }, error => {
       console.error(error);
