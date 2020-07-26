@@ -1,0 +1,10 @@
+label.radio-input
+  input.radio-input__field(
+    type="radio",
+    data-ng-attr-name="{{:: c.name }}",
+    data-ng-attr-value="{{:: c.value }}",
+    data-ng-change="c.change()"
+    data-ng-model="c.model",
+  )/
+
+  span.radio-input__label(data-ng-transclude)

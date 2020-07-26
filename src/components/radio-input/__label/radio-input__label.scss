@@ -1,0 +1,32 @@
+@import '../radio-input.vars';
+
+.radio-input__label {
+  display: block;
+  position: relative;
+  min-height: $radioSize;
+  padding-left: $radioSize;
+  text-align: left;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    box-sizing: border-box;
+    width: $radioSize;
+    height: $radioSize;
+    margin-top: 1px; // компенсация line-height
+    border: $borderSize solid #aaa;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  &:hover {
+    &::before {
+      border-color: #1451fa;
+    }
+  }
+
+  &:not(:empty) {
+    padding-left: $radioSize + 8px;
+  }
+}

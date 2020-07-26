@@ -1,0 +1,31 @@
+@import '../radio-input.vars';
+
+.radio-input__field {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+
+  &:focus + .radio-input__label {
+    &::before {
+      border-color: #1451fa;
+    }
+  }
+
+  &:checked + .radio-input__label {
+    &::after {
+      content: '';
+      position: absolute;
+      top: ($radioSize - $checkSize) / 2;
+      left: ($radioSize - $checkSize) / 2;
+      width: $checkSize;
+      height: $checkSize;
+      margin-top: 1px; // компенсация line-height
+      border-radius: 50%;
+      background: #000;
+    }
+  }
+}
