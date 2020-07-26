@@ -1,0 +1,11 @@
+mixin button(props)
+  - props = typeof props != 'undefined' ? props : {}
+
+  - var attrs = props.attrs || {}
+  - var tag = props.tag || 'button'
+  - var data = props.data || {}
+
+  #{tag}(
+    class="button",
+    type="button"
+  )&attributes(attrs)= data.text
