@@ -1,8 +1,9 @@
 class AddOfficeViewDirective {
-  constructor($http, $state) {
+  constructor($http, $state, mapService) {
     this.deps = {
       $http,
       $state,
+      mapService,
     };
 
     this.companies = [];
@@ -12,6 +13,8 @@ class AddOfficeViewDirective {
   }
 
   $onInit() {
+    this.deps.mapService.clear();
+
     this.deps.$http({
       method: 'GET',
       url: '/api/companies',
@@ -68,7 +71,7 @@ angular
     controller: AddOfficeViewDirective,
     controllerAs: 'c',
     bindToController: true,
-    $inject: ['$http', '$state'],
+    $inject: ['$http', '$state', 'mapService'],
   }));
 
 function coordsStringToArray(coordsString, skipValidation) {
