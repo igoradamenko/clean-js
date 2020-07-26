@@ -11,5 +11,5 @@ mixin menu(props)
     a.menu__item(
       data-ng-repeat="item in #{data.items}",
       data-ng-attr-href="{{ item.current ? undefined : item.href }}"
-      data-ng-class="{'menu__item_current': item.current}"
+      data-ng-class="{'menu__item_current': item.current, 'menu__item_separated': item.separated}"
     ) {{ item.title }}
