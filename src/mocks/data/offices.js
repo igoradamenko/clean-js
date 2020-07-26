@@ -8,7 +8,8 @@ module.exports = {
       coords: [
         37.634234,
         55.757761,
-      ]
+      ],
+      index: 30,
     },
     {
       id: '2',
@@ -16,7 +17,8 @@ module.exports = {
       coords: [
         37.638386,
         55.765364,
-      ]
+      ],
+      index: 3,
     },
     {
       id: '3',
@@ -24,7 +26,8 @@ module.exports = {
       coords: [
         37.615102,
         55.755617,
-      ]
+      ],
+      index: 23,
     },
     {
       id: '4',
@@ -32,7 +35,8 @@ module.exports = {
       coords: [
         37.624923,
         55.760223,
-      ]
+      ],
+      index: 91,
     },
     {
       id: '5',
@@ -40,7 +44,8 @@ module.exports = {
       coords: [
         37.679224,
         55.746941,
-      ]
+      ],
+      index: 19,
     },
     {
       id: '6',
@@ -48,7 +53,8 @@ module.exports = {
       coords: [
         37.658692,
         55.758616,
-      ]
+      ],
+      index: 73,
     },
     {
       id: '7',
@@ -56,7 +62,8 @@ module.exports = {
       coords: [
         37.623942,
         55.757939,
-      ]
+      ],
+      index: 39,
     },
     {
       id: '8',
@@ -64,7 +71,8 @@ module.exports = {
       coords: [
         37.603176,
         55.764601,
-      ]
+      ],
+      index: 0,
     },
     {
       id: '9',
@@ -72,7 +80,8 @@ module.exports = {
       coords: [
         37.656007,
         55.741653,
-      ]
+      ],
+      index: 1,
     },
     {
       id: '10',
@@ -80,7 +89,8 @@ module.exports = {
       coords: [
         37.62547,
         55.740975,
-      ]
+      ],
+      index: 9,
     },
     {
       id: '11',
@@ -88,7 +98,8 @@ module.exports = {
       coords: [
         37.610687,
         55.758928,
-      ]
+      ],
+      index: 72,
     },
     {
       id: '12',
@@ -96,7 +107,8 @@ module.exports = {
       coords: [
         37.632134,
         55.760697,
-      ]
+      ],
+      index: 52,
     },
     {
       id: '13',
@@ -104,7 +116,8 @@ module.exports = {
       coords: [
         37.631685,
         55.772159,
-      ]
+      ],
+      index: 1,
     },
     {
       id: '14',
@@ -112,7 +125,8 @@ module.exports = {
       coords: [
         37.681632,
         55.771557,
-      ]
+      ],
+      index: 89,
     },
     {
       id: '15',
@@ -120,7 +134,8 @@ module.exports = {
       coords: [
         37.584405,
         55.747437,
-      ]
+      ],
+      index: 52,
     },
     {
       id: '16',
@@ -128,7 +143,8 @@ module.exports = {
       coords: [
         37.598022,
         55.752654,
-      ]
+      ],
+      index: 23,
     },
     {
       id: '17',
@@ -136,7 +152,8 @@ module.exports = {
       coords: [
         37.563371,
         55.762308,
-      ]
+      ],
+      index: 2,
     },
     {
       id: '18',
@@ -144,7 +161,8 @@ module.exports = {
       coords: [
         37.566222,
         55.745956,
-      ]
+      ],
+      index: 85,
     },
     {
       id: '19',
@@ -152,7 +170,8 @@ module.exports = {
       coords: [
         37.584155,
         55.775388,
-      ]
+      ],
+      index: 47,
     },
     {
       id: '20',
@@ -160,7 +179,8 @@ module.exports = {
       coords: [
         37.562937,
         55.743249,
-      ]
+      ],
+      index: 9,
     },
     {
       id: '21',
@@ -168,7 +188,8 @@ module.exports = {
       coords: [
         37.642474,
         55.73552,
-      ]
+      ],
+      index: 58,
     },
   ],
   2: [
@@ -178,7 +199,8 @@ module.exports = {
       coords: [
         37.622901,
         55.757606,
-      ]
+      ],
+      index: 37,
     },
     {
       id: '2',
@@ -186,7 +208,8 @@ module.exports = {
       coords: [
         37.66114,
         55.756583,
-      ]
+      ],
+      index: 92,
     },
     {
       id: '3',
@@ -194,7 +217,8 @@ module.exports = {
       coords: [
         37.632629,
         55.761535,
-      ]
+      ],
+      index: 100,
     },
     {
       id: '4',
@@ -202,7 +226,8 @@ module.exports = {
       coords: [
         37.614685,
         55.755445,
-      ]
+      ],
+      index: 83,
     },
     {
       id: '5',
@@ -210,7 +235,7 @@ module.exports = {
       coords: [
         37.650244,
         55.744232,
-      ]
+      ],
     },
     {
       id: '6',
@@ -218,7 +243,8 @@ module.exports = {
       coords: [
         37.655581,
         55.741816,
-      ]
+      ],
+      index: 1,
     },
     {
       id: '7',
@@ -226,7 +252,7 @@ module.exports = {
       coords: [
         37.656622,
         55.774598,
-      ]
+      ],
     },
     {
       id: '8',
@@ -234,7 +260,7 @@ module.exports = {
       coords: [
         37.716393,
         55.753427,
-      ]
+      ],
     },
     {
       id: '9',
@@ -242,7 +268,7 @@ module.exports = {
       coords: [
         37.70153,
         55.735527,
-      ]
+      ],
     },
     {
       id: '10',
@@ -250,7 +276,8 @@ module.exports = {
       coords: [
         37.701359,
         55.735557,
-      ]
+      ],
+      index: 10,
     },
     {
       id: '11',
@@ -258,7 +285,8 @@ module.exports = {
       coords: [
         37.576118,
         55.761184,
-      ]
+      ],
+      index: 80,
     },
     {
       id: '12',
@@ -266,7 +294,8 @@ module.exports = {
       coords: [
         37.582951,
         55.774987,
-      ]
+      ],
+      index: 50,
     },
     {
       id: '13',
@@ -274,7 +303,8 @@ module.exports = {
       coords: [
         37.567259,
         55.744627,
-      ]
+      ],
+      index: 77,
     },
     {
       id: '14',
@@ -282,7 +312,7 @@ module.exports = {
       coords: [
         37.658118,
         55.776497,
-      ]
+      ],
     },
     {
       id: '15',
@@ -290,7 +320,8 @@ module.exports = {
       coords: [
         37.564331,
         55.76457,
-      ]
+      ],
+      index: 12,
     },
     {
       id: '16',
@@ -298,7 +329,7 @@ module.exports = {
       coords: [
         37.56626,
         55.744128,
-      ]
+      ],
     },
     {
       id: '17',
@@ -306,7 +337,8 @@ module.exports = {
       coords: [
         37.658011,
         55.776442,
-      ]
+      ],
+      index: 8,
     },
     {
       id: '18',
@@ -314,7 +346,8 @@ module.exports = {
       coords: [
         37.56339,
         55.742786,
-      ]
+      ],
+      index: 4,
     },
   ],
   3: [
@@ -324,7 +357,8 @@ module.exports = {
       coords: [
         37.614419,
         55.760434,
-      ]
+      ],
+      index: 34,
     },
     {
       id: '2',
@@ -332,7 +366,8 @@ module.exports = {
       coords: [
         37.657185,
         55.758192,
-      ]
+      ],
+      index: 87,
     },
     {
       id: '3',
@@ -340,7 +375,8 @@ module.exports = {
       coords: [
         37.62672,
         55.741025,
-      ]
+      ],
+      index: 56,
     },
     {
       id: '4',
@@ -348,7 +384,8 @@ module.exports = {
       coords: [
         37.657682,
         55.740882,
-      ]
+      ],
+      index: 92,
     },
     {
       id: '5',
@@ -356,7 +393,8 @@ module.exports = {
       coords: [
         37.625567,
         55.760189,
-      ]
+      ],
+      index: 74,
     },
     {
       id: '6',
@@ -364,7 +402,8 @@ module.exports = {
       coords: [
         37.603787,
         55.752592,
-      ]
+      ],
+      index: 38,
     },
     {
       id: '7',
@@ -372,7 +411,8 @@ module.exports = {
       coords: [
         37.67705,
         55.772634,
-      ]
+      ],
+      index: 92,
     },
     {
       id: '8',
@@ -380,7 +420,8 @@ module.exports = {
       coords: [
         37.633153,
         55.771758,
-      ]
+      ],
+      index: 58,
     },
     {
       id: '9',
@@ -388,7 +429,8 @@ module.exports = {
       coords: [
         37.620016,
         55.770578,
-      ]
+      ],
+      index: 67,
     },
     {
       id: '10',
@@ -396,7 +438,8 @@ module.exports = {
       coords: [
         37.656936,
         55.775014,
-      ]
+      ],
+      index: 30,
     },
     {
       id: '11',
@@ -404,7 +447,8 @@ module.exports = {
       coords: [
         37.619054,
         55.735275,
-      ]
+      ],
+      index: 100,
     },
     {
       id: '12',
@@ -412,7 +456,8 @@ module.exports = {
       coords: [
         37.706023,
         55.748205,
-      ]
+      ],
+      index: 84,
     },
     {
       id: '13',
@@ -420,7 +465,8 @@ module.exports = {
       coords: [
         37.715471,
         55.75322,
-      ]
+      ],
+      index: 54,
     },
     {
       id: '14',
@@ -428,7 +474,8 @@ module.exports = {
       coords: [
         37.584581,
         55.759976,
-      ]
+      ],
+      index: 50,
     },
     {
       id: '15',
@@ -436,7 +483,8 @@ module.exports = {
       coords: [
         37.590964,
         55.752157,
-      ]
+      ],
+      index: 0,
     },
     {
       id: '16',
@@ -444,7 +492,7 @@ module.exports = {
       coords: [
         37.614419,
         55.760434,
-      ]
+      ],
     },
     {
       id: '17',
@@ -452,7 +500,8 @@ module.exports = {
       coords: [
         37.590497,
         55.736306,
-      ]
+      ],
+      index: 1,
     },
     {
       id: '18',
@@ -460,7 +509,8 @@ module.exports = {
       coords: [
         37.575962,
         55.761264,
-      ]
+      ],
+      index: 9,
     },
     {
       id: '19',
@@ -468,7 +518,8 @@ module.exports = {
       coords: [
         37.6567,
         55.7769,
-      ]
+      ],
+      index: 4,
     },
     {
       id: '20',
@@ -476,7 +527,8 @@ module.exports = {
       coords: [
         37.5817,
         55.7763,
-      ]
+      ],
+      index: 76,
     },
     {
       id: '21',
@@ -484,7 +536,8 @@ module.exports = {
       coords: [
         37.677238,
         55.772554,
-      ]
+      ],
+      index: 34,
     },
     {
       id: '22',
@@ -492,7 +545,8 @@ module.exports = {
       coords: [
         37.590855,
         55.736257,
-      ]
+      ],
+      index: 9,
     },
     {
       id: '23',
@@ -500,7 +554,8 @@ module.exports = {
       coords: [
         37.576118,
         55.761184,
-      ]
+      ],
+      index: 50,
     },
     {
       id: '24',
@@ -508,7 +563,8 @@ module.exports = {
       coords: [
         37.716393,
         55.753427,
-      ]
+      ],
+      index: 37,
     },
     {
       id: '25',
@@ -516,7 +572,8 @@ module.exports = {
       coords: [
         37.656622,
         55.774598,
-      ]
+      ],
+      index: 66,
     },
   ],
 };

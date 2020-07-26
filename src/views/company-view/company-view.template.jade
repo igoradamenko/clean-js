@@ -15,6 +15,8 @@ include ../../components/offices-list/__item/=offices-list__item
       }
     })
       | {{ office.address }}
+      br/
+      span(data-ng-style="{ color: office.color }") {{ office.status }}
       //+offices-list__button({
       //  attrs: {
       //    'data-ng-click': 'c.onEditClick(office.id)'

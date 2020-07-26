@@ -1,3 +1,6 @@
+const STATUS_TEXTS = ['нет данных об очередях', 'очередей почти нет', 'есть очереди', 'большие очереди', 'ресторан перегружен'];
+const STATUS_COLORS = ['#ddd', '#2aaf3b', '#ecba00', '#ec2c00', '#8e1a00'];
+
 class CompanyViewDirective {
   constructor($element, $http, $scope, $stateParams, $window, mapService) {
     this.deps = {
@@ -25,6 +28,15 @@ class CompanyViewDirective {
       this.offices.forEach(office => {
         this.deps.mapService.addPOI(office.coords, { id: office.id });
       });
+
+      this.offices = this.offices.reduce((acc, office) => {
+        const status = getStatusByIndex(office.index);
+        return acc.concat({
+          ...office,
+          status: STATUS_TEXTS[status],
+          color: STATUS_COLORS[status],
+        });
+      }, []);
     }, error => {
       console.error(error);
     });
@@ -94,3 +106,18 @@ angular
     bindToController: true,
     $inject: ['$element', '$http', '$scope', '$stateParams', '$window', 'mapService'],
   }));
+
+function getStatusByIndex(index) {
+  switch (true) {
+    case typeof index === 'undefined':
+      return 0;
+    case index < 30:
+      return 1;
+    case index < 60:
+      return 2;
+    case index < 90:
+      return 3;
+    default:
+      return 4;
+  }
+}
