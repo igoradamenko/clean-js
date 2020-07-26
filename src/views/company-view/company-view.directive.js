@@ -29,12 +29,15 @@ class CompanyViewDirective {
         this.deps.mapService.addPOI(office.coords, { id: office.id });
       });
 
+      const newKFCOfficesRegexp = /комсомольская площадь, 5/ig;
+
       this.offices = this.offices.reduce((acc, office) => {
         const status = getStatusByIndex(office.index);
         return acc.concat({
           ...office,
           status: STATUS_TEXTS[status],
           color: STATUS_COLORS[status],
+          new: newKFCOfficesRegexp.exec(office.address),
         });
       }, []);
     }, error => {

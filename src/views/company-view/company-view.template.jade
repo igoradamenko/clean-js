@@ -11,7 +11,8 @@ include ../../components/offices-list/__item/=offices-list__item
       attrs: {
         'data-ng-attr-id': "{{ 'office' + office.id }}",
         'data-ng-repeat': 'office in c.offices',
-        'data-ng-click': 'c.selectOffice(office)'
+        'data-ng-click': 'c.selectOffice(office)',
+        'data-ng-style': '{ fontWeight: office.new ? 700 : 400}'
       }
     })
       | {{ office.address }}
