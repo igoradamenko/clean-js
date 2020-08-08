@@ -24,28 +24,39 @@ class CompanyViewDirective {
       method: 'GET',
       url: `/api/companies/${this.deps.$stateParams.id}`,
     }).then(response => {
-      this.offices = response.data.result.offices;
-      this.offices.forEach(office => {
-        this.deps.mapService.addPOI(office.coords, { id: office.id });
-      });
-
-      const newKFCOfficesRegexp = /комсомольская площадь, 5/ig;
-
-      this.offices = this.offices.reduce((acc, office) => {
-        const status = getStatusByIndex(office.index);
-        return acc.concat({
-          ...office,
-          status: STATUS_TEXTS[status],
-          color: STATUS_COLORS[status],
-          new: newKFCOfficesRegexp.exec(office.address),
-        });
-      }, []);
+      this.saveOffices(response);
+      this.addPOI();
+      this.updateStatuses();
     }, error => {
       console.error(error);
     });
 
     this.keyupHandler = this.onKeydown.bind(this);
     this.deps.$window.addEventListener('keydown', this.keyupHandler);
+  }
+
+  saveOffices(response) {
+    this.offices = response.data.result.offices;
+  }
+
+  addPOI() {
+    this.offices.forEach(office => {
+      this.deps.mapService.addPOI(office.coords, { id: office.id });
+    });
+  }
+
+  updateStatuses() {
+    const newKFCOfficesRegexp = /комсомольская площадь, 5/ig;
+
+    this.offices = this.offices.reduce((acc, office) => {
+      const status = getStatus(office.index);
+      return acc.concat({
+        ...office,
+        status: STATUS_TEXTS[status],
+        color: STATUS_COLORS[status],
+        new: newKFCOfficesRegexp.exec(office.address),
+      });
+    }, []);
   }
 
   $onDestroy() {
@@ -110,7 +121,7 @@ angular
     $inject: ['$element', '$http', '$scope', '$stateParams', '$window', 'mapService'],
   }));
 
-function getStatusByIndex(index) {
+function getStatus(index) {
   switch (true) {
     case typeof index === 'undefined':
       return 0;
