@@ -4,7 +4,7 @@
   "description": "Frontend Refactoring, Russian version",
   "scripts": {
     "start": "webpack-dev-server --progress --hot --inline --config ./config/webpack.config.js",
-    "lint-js": "eslint --cache -c .eslintrc.js src",
+    "lint-js": "eslint --cache -c .eslintrc.js src config",
     "lint-scss": "stylelint \"src/**/*.scss\" --syntax scss --cache",
     "test": "mocha src/**/*.test.js"
   },
@@ -14,17 +14,13 @@
     "angular-ui-router": "0.2.18"
   },
   "devDependencies": {
+    "@funboxteam/eslint-config": "5.0.0",
     "autoprefixer": "9.7.4",
     "chai": "4.2.0",
     "chai-datetime": "1.5.0",
     "css-loader": "3.4.2",
     "csso-webpack-plugin": "2.0.0-beta.1",
     "eslint": "5.16.0",
-    "eslint-config-airbnb": "17.1.0",
-    "eslint-import-resolver-webpack": "0.8.3",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-jsx-a11y": "6.1.1",
-    "eslint-plugin-react": "7.11.1",
     "fibers": "4.0.2",
     "html-webpack-plugin": "3.2.0",
     "husky": "4.2.1",

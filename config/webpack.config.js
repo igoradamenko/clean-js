@@ -1,6 +1,7 @@
 const webpack = require('webpack');
-const Define = webpack.DefinePlugin;
 const Html = require('html-webpack-plugin');
+
+const Define = webpack.DefinePlugin;
 
 const path = x => (require('path')).resolve(__dirname, '..', ...x.split('/'));
 
