@@ -31,27 +31,25 @@ class MapController {
 
     this.deps.$window[onloadFunctionName] = () => {
       this.deps.$scope.$apply(() => {
-        this.initializeMap();
+        if (this.map || typeof ymaps === 'undefined') return;
+
+        this.map = new ymaps.Map(this.mapNode, {
+          center: [55.75222, 37.61556],
+          zoom: 13,
+          controls: [],
+        }, {
+          autoFitToViewport: 'always',
+          avoidFractionalZoom: false,
+        });
+
+        this.map.events.add('boundschange', this.handleBoundsChange.bind(this), {}, -1);
+
         this.deps.$window[onloadFunctionName] = null;
         this.inited = true;
-        this.fireInitCallbacks();
+
+        this.initCallbacks.forEach(cb => cb(ymaps));
       });
     };
-  }
-
-  initializeMap() {
-    if (this.map || typeof ymaps === 'undefined') return;
-
-    this.map = new ymaps.Map(this.mapNode, {
-      center: [55.75222, 37.61556],
-      zoom: 13,
-      controls: [],
-    }, {
-      autoFitToViewport: 'always',
-      avoidFractionalZoom: false,
-    });
-
-    this.map.events.add('boundschange', this.handleBoundsChange.bind(this), {}, -1);
   }
 
   clear() {
@@ -74,10 +72,6 @@ class MapController {
     this.initCallbacks.push(deferred.resolve);
 
     return deferred.promise;
-  }
-
-  fireInitCallbacks() {
-    this.initCallbacks.forEach(cb => cb(ymaps));
   }
 
   addPOI(location, iconData) {
