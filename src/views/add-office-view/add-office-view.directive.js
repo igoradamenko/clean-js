@@ -74,10 +74,10 @@ angular
     $inject: ['$http', '$state', 'mapService'],
   }));
 
-function coordsStringToArray(coordsString, skipValidation) {
+function coordsStringToArray(coordsString, dontValidate) {
   const coordsArray = coordsString.split(',').map(x => +x.trim());
 
-  if (!skipValidation) {
+  if (!dontValidate) {
     if (!(coordsArray[0] > 55.143833 && coordsArray[0] < 56.021388
       && coordsArray[1] > 36.803250 && coordsArray[1] < 37.967777)) return null;
   }
