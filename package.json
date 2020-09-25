@@ -1,7 +1,7 @@
 {
-  "name": "frontend-refactoring-ru",
+  "name": "clean-js",
   "version": "0.1.0",
-  "description": "Frontend Refactoring, Russian version",
+  "description": "Demo project for Clean JS talk",
   "scripts": {
     "start": "webpack-dev-server --progress --hot --inline --config ./config/webpack.config.js",
     "lint-js": "eslint --cache -c .eslintrc.js src config",
