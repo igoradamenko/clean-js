@@ -9,7 +9,7 @@
     "test": "mocha src/**/*.test.js"
   },
   "dependencies": {
-    "angular": "1.5.9",
+    "angular": "1.8.0",
     "angular-mocks": "1.5.9",
     "angular-ui-router": "0.2.18"
   },
